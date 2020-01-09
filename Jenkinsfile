@@ -5,7 +5,8 @@ pipeline {
              steps {
                  sh 'tidy -q -e *.html'
              }
-         stage('Upload to AWS')  {
+          }   
+          stage('Upload to AWS')  {
              steps {
                  sh 'echo "Hello World"'
                  sh '''
@@ -16,7 +17,7 @@ pipeline {
                        s3Upload(bucket:"jaaslam-devops" , includePathPattern:'**/*')
                        
                   }
-               }
+               
              }
          }
     }
