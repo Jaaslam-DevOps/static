@@ -8,6 +8,11 @@ pipeline {
                      echo "Multiline shell steps works too"
                      ls -lah
                  '''
+                  withAWS(region: 'us-west-2', credentials:'aws-static') {
+                       s3Upload(bucket:"jaaslam-devops" , includePathPattern:'**/*')
+                       
+                  }
+                 
              }
          }
     }
